@@ -1,1 +1,1 @@
-# nurse_scale
+# Software em desenvolvimento visando facilitar a criação e gestão de escalas de trabalho de equipes de enfermagem. O projeto nasceu da necessidade real de automatizar um processo que hoje é feito manualmente, sujeito a erros e que consome tempo valioso dos gestores e coordenadores de enfermagem.
