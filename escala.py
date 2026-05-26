@@ -35,3 +35,9 @@ def exibir_escala():
         turnos_str = ", ".join(turnos) if turnos else "Sem turnos"
         print(f"{funcionario}: {turnos_str}")
 exibir_escala()
+
+def gerar_escala_vazia(dias):
+    escala_vazia = ["F"] * dias
+    return escala_vazia
+
+print(gerar_escala_vazia(30)),
