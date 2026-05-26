@@ -110,3 +110,17 @@ def remover_funcionario(id):
             print("Funcionário não encontrado!")
 
 remover_funcionario(3)  # ID do funcionário a ser removido
+
+func1 = "Enfermeiro"
+func2 = "Técnico de Enfermagem"
+
+def buscar_funcionario(nome):
+    lista_funcionarios = [funcionario for funcionario in funcionarios if funcionario['nome'] == nome]
+    if lista_funcionarios:
+        for funcionario in lista_funcionarios:
+            print(f"ID: {funcionario['id']}, Nome: {funcionario['nome']}, Cargo: {funcionario['cargo']}")
+    else:
+        print("Funcionário não encontrado.")
+
+        #Buscar um funcionário pelo nome#
+buscar_funcionario("Maria")
