@@ -99,3 +99,14 @@ def add_funcionario(nome, cargo):
 
 add_funcionario("Pedro", "Técnico de Enfermagem")
 func_list()
+
+def remover_funcionario(id):
+        for funcionario in funcionarios:
+            if funcionario['id'] == id:  # ID do funcionário a ser removido
+                funcionarios.remove(funcionario)
+                print("Funcionário removido com sucesso!")
+                break
+        else:
+            print("Funcionário não encontrado!")
+
+remover_funcionario(3)  # ID do funcionário a ser removido
