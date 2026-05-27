@@ -78,3 +78,9 @@ def validar_folga_6dias(turnos):
     return True
 print(validar_folga_6dias(["MT", "MT", "MT", "MT", "MT", "MT", "MT"]))
 print(validar_folga_6dias(["MT", "MT", "F", "MT", "MT", "MT", "MT"]))
+
+def validar_total_turnos(turnos):
+    total_turnos = sum(1 for turno in turnos if turno in ["MT", "SN"])
+    return total_turnos == 12
+print(validar_total_turnos(["MT"] * 12))  
+print(validar_total_turnos(["MT"] * 10 + ["SN"] * 3))
