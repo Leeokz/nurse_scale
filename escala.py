@@ -65,3 +65,16 @@ def validar_mt_consecutivo(turnos):
    return True
 print(validar_mt_consecutivo(["MT", "MT", "MT", "MT", "F"]))
 print(validar_mt_consecutivo(["MT", "MT", "F", "MT", "MT"]))
+
+def validar_folga_6dias(turnos):
+    contador_folga = 0
+    for turno in turnos:
+        if turno in ["MT", "SN", "S"]:
+            contador_folga += 1
+            if contador_folga > 6:
+                return False
+        else:
+            contador_folga = 0
+    return True
+print(validar_folga_6dias(["MT", "MT", "MT", "MT", "MT", "MT", "MT"]))
+print(validar_folga_6dias(["MT", "MT", "F", "MT", "MT", "MT", "MT"]))
