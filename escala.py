@@ -41,3 +41,14 @@ def gerar_escala_vazia(dias):
     return escala_vazia
 
 print(gerar_escala_vazia(30)),
+
+def aplicar_regra_sn(turnos):
+    for indice, turno in enumerate(turnos):
+        if turno == "SN":
+            if indice + 1 < len(turnos):
+                turnos[indice + 1] = "S"
+    return turnos
+
+turnos_exemplo = ["MT", "SN", "F", "MT", "SN", "F"]
+turnos_aplicados = aplicar_regra_sn(turnos_exemplo)
+print(turnos_aplicados)
