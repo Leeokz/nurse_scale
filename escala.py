@@ -52,3 +52,16 @@ def aplicar_regra_sn(turnos):
 turnos_exemplo = ["MT", "SN", "F", "MT", "SN", "F"]
 turnos_aplicados = aplicar_regra_sn(turnos_exemplo)
 print(turnos_aplicados)
+
+def validar_mt_consecutivo(turnos):
+   contador_mt = 0
+   for turno in turnos:
+       if turno == "MT":
+           contador_mt += 1
+           if contador_mt == 4:
+               return False
+       else:
+           contador_mt = 0
+   return True
+print(validar_mt_consecutivo(["MT", "MT", "MT", "MT", "F"]))
+print(validar_mt_consecutivo(["MT", "MT", "F", "MT", "MT"]))
