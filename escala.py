@@ -84,3 +84,37 @@ def validar_total_turnos(turnos):
     return total_turnos == 12
 print(validar_total_turnos(["MT"] * 12))  
 print(validar_total_turnos(["MT"] * 10 + ["SN"] * 3))
+
+
+import calendar
+def validar_fds_folga(turnos, ano, mes):
+    # Verificar o dia da semana do primeiro dia do mês
+    for indice, turno in enumerate(turnos):
+        dia = indice + 1
+        if turno in ["F"]:
+            if calendar.weekday(ano, mes, dia) == 5:  # Verificar se é sábado ou domingo
+                    
+                if turnos[indice + 1] == "F":  # Verificar se o próximo dia também é folga
+                    return True
+    return False 
+
+turnos_com_fds = ["F"] * 30
+print(validar_fds_folga(turnos_com_fds, 2025, 5))
+turnos_sem_fds = ["MT"] * 30
+print(validar_fds_folga(turnos_sem_fds, 2025, 5))
+
+
+def check_rules(turnos, ano, mes):
+    mt_ok = validar_mt_consecutivo(turnos)
+    print(f"Regra MT consecutivo: {'OK' if mt_ok else 'Violada'}")
+    folga_ok = validar_folga_6dias(turnos)
+    print(f"Folga a cada 6 dias: {'OK' if folga_ok else 'Violada'}")
+    total_ok = validar_total_turnos(turnos)
+    print(f"Total de turnos MT e SN: {'OK' if total_ok else 'Violada'}")
+    fds_ok = validar_fds_folga(turnos, ano, mes)
+    print(f"Folga no fim de semana: {'OK' if fds_ok else 'Violada'}")
+  
+    return mt_ok and folga_ok and total_ok and fds_ok 
+
+turnos_teste = ["MT"] * 12 + ["F"] * 18
+print(check_rules(turnos_teste, 2026, 5))
